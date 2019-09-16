@@ -14,12 +14,28 @@ class Login extends Component {
     success: null,
     loading: false,
   }
-
+  
   onFormSubmit = (data) => {
     const { onFormSubmit } = this.props;
-
     this.setState({ loading: true });
-
+    
+    // return fetch('http://localhost:8000/api-token-auth/', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    //   .then(res => res.json())
+    //   .then(json => console.log(json))
+    //   .then(json => {
+    //     localStorage.setItem('token', json.token);
+    //     this.setState({
+    //       logged_in: true,
+    //       displayed_form: '',
+    //       username: json.user.username
+    //     });
+    //   });
     return onFormSubmit(data)
       .then(() => this.setState({
         loading: false,
@@ -45,7 +61,7 @@ class Login extends Component {
         member={member}
         loading={loading}
         success={success}
-        onFormSubmit={this.onFormSubmit}
+        onFormSubmit={this.onFormmSubmit}
       />
     );
   }

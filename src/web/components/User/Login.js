@@ -51,7 +51,7 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { onFormSubmit, history } = this.props;
-
+    console.log(onFormSubmit)
     return onFormSubmit(this.state)
       .then(() => setTimeout(() => history.push('/'), 1000))
       .catch(() => {});
@@ -73,9 +73,9 @@ class Login extends React.Component {
 
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="email">Email</Label>
+                    <Label for="email">Username</Label>
                     <Input
-                      type="email"
+                      type="text"
                       name="email"
                       id="email"
                       placeholder="john@doe.corp"
